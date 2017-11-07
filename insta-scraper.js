@@ -17,9 +17,9 @@ exports.getAccountInfo = function(username, cb){
 exports.getAccountMedia = function(username, param2, param3){
     var cb, maxid;
     if(!param3){ cb = param2; maxid = ''; }else{ cb = param3; maxid='&max_id=' + param2; }
-    getInstaJson('https://www.instagram.com/' + username + '/media/?__a=1' + maxid
+    getInstaJson('https://www.instagram.com/' + username + '/?__a=1'
         , function(error, json){
-            cb(error, json.items);
+            cb(error, json.user.media.nodes);
         });
 };
 
